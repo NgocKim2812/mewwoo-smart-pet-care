@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEWWOO - Hệ thống chăm sóc thú cưng thông minh</title>
+    <style>
+        /* ...giữ nguyên toàn bộ phần style của bạn... */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        :root {
+            --primary-blue: #2563eb;
+            --dark-blue: #1e40af;
+            --white: #ffffff;
+            --black: #1f2937;
+            --gray: #6b7280;
+            --light-gray: #f3f4f6;
+        }
+        body {
+            color: var(--black);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            padding: 15px 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 48px;
+            margin-right: 10px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 25px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+        }
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: 2px solid var(--primary-blue);
+        }
+        .btn-outline {
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            background-color: transparent;
+        }
+        .hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+                        url('https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--black);
+            line-height: 1.3;
+        }
+        .hero p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        .hero-buttons {
+            margin-top: 30px;
+        }
+        .hero-buttons .btn {
+            margin: 0 10px;
+            min-width: 180px;
+        }
+        .section {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 50px;
+            color: var(--black);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .feature-icon {
+            font-size: 40px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--black);
+        }
+        .product {
+            background-color: var(--light-gray);
+        }
+        .product-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .product-image {
+            flex: 1;
+            text-align: center;
+        }
+        .product-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .product-info {
+            flex: 1;
+        }
+        .product-info h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+        .product-info ul {
+            margin-bottom: 30px;
+            list-style-position: inside;
+        }
+        .product-info li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        /* ...giữ nguyên các style khác... */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                margin-top: 20px;
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            .hero {
+                padding: 120px 0 60px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .product-container {
+                flex-direction: column;
+            }
+            .hero-buttons .btn {
+                display: block;
+                margin: 10px auto;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="https://cdn.jsdelivr.net/gh/NgocKim2812/mewwoo-2@main/logo-mewwoo.png" alt="MEWWOO Logo">
+                MEWWOO
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Trang chủ</a></li>
+                    <li><a href="#product">Sản phẩm</a></li>
+                    <li><a href="#features">Tính năng</a></li>
+                    <li><a href="#pricing">Giá cả</a></li>
+                    <li><a href="#testimonials">Đánh giá</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Tải ứng dụng</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Biến yêu thương thành hành động cụ thể</h1>
+            <p>Hệ thống chăm sóc thú cưng thông minh tiên phong tại Việt Nam - Theo dõi sức khỏe, dinh dưỡng, vị trí 24/7 và hơn thế nữa</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">Tải ứng dụng ngay</a>
+                <a href="#product" class="btn btn-outline">Khám phá sản phẩm</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="container">
+            <h2 class="section-title">Tại sao chọn MEWWOO?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Công nghệ AI Tiên Phong</h3>
+                    <p>Phân tích 20 triệu chứng với độ chính xác >90%</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Cá nhân hóa tối đa</h3>
+                    <p>Thực đơn dinh dưỡng và chế độ tập luyện riêng</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Hệ sinh thái toàn diện</h3>
+                    <p>Kết nối với phòng khám, cửa hàng thú cưng</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>An tâm mọi lúc</h3>
+                    <p>Theo dõi 24/7 với cảnh báo tức thì</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="section product" id="product">
+        <div class="container">
+            <h2 class="section-title">Sản phẩm của chúng tôi</h2>
+            <div class="product-container">
+                <div class="product-image">
+                    <img src="https://cdn.jsdelivr.net/gh/NgocKim2812/mewwoo-2@main/device-gallery.png" alt="MEWWOO Smart Collar">
+                </div>
+                <div class="product-info">
+                    <h2>Vòng cổ thông minh MEWWOO</h2>
+                    <ul>
+                        <li>Theo dõi sức khỏe 24/7: nhịp tim, nhiệt độ, hoạt động</li>
+                        <li>Định vị GPS chính xác, cảnh báo vùng an toàn</li>
+                        <li>Chống nước IP67, sử dụng dưới mọi thời tiết</li>
+                        <li>Pin 7 ngày, sạc nhanh qua cổng USB-C</li>
+                        <li>Thiết kế nhẹ nhàng, phù hợp mọi giống chó/mèo</li>
+                    </ul>
+                    <a href="#pricing" class="btn btn-primary">Xem bảng giá</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phần còn lại giữ nguyên như bạn đã có ... -->
+
+    <!-- Pricing Section -->
+    <!-- Testimonials Section -->
+    <!-- CTA Section -->
+    <!-- Footer -->
+    <!-- Script -->
+</body>
+</html>
